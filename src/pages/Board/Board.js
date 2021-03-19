@@ -1,0 +1,1 @@
+export const Board = () => <h1>Board page</h1>
