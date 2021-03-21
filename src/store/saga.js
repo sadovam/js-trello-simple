@@ -11,7 +11,7 @@ function* sagaWorker() {
         const payload = yield call(fetchBoards);
         yield put(requestedBoards(payload));
     } catch(err) {
-        console.log(err);
+        console.error("EEE>> ", err);
     }
 }
 

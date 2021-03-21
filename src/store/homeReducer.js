@@ -7,7 +7,7 @@ const initialState = {
 export const homeReducer = (state=initialState, action) => {
     switch(action.type) {
         case REQUESTED_BOARDS:
-            return { ...state, data: action.payload};
+            return { ...state, boards: action.payload};
         default:
             return { ...state };
     };
