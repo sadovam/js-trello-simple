@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { rootReducer } from './store/rootReducer';
+import { sagaWatcher } from './store/saga';
 
-const store = createStore (rootReducer);
+const saga = createSagaMiddleware();
+
+const store = createStore (rootReducer, applyMiddleware(saga));
+
+saga.run(sagaWatcher);
 
 ReactDOM.render(
   <React.StrictMode>
