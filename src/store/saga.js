@@ -1,4 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
+import api from './api';
 import { requestedBoards } from './actions';
 import { FETCH_BOARDS, FETCH_DATA } from "./types";
 
@@ -31,19 +32,6 @@ function* dataWorker(action) {
 }
 
 
-const baseURL = 'https://trello-back.shpp.me/asadov/api/v1/';
-
-const jsonHeaders = new Headers({
-    'Content-Type': 'application/json',
-    Authorization: 'Bearer 123'
-});
-
-const getInit = {
-    method: 'GET',
-    headers: jsonHeaders,
-};
-
 async function fetchData(url) {
-    const response = await fetch(baseURL + url, getInit);
-    return await response.json();
+    return await api.get(url);
 }
