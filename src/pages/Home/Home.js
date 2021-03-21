@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchBoards } from '../../store/actions';
-export const Home = ({fetchBoards, boards}) => {
+import { fetchBoards, fetchData } from '../../store/actions';
+export const Home = ({fetchBoards, fetchData, boards}) => {
     
-    useEffect(fetchBoards, [fetchBoards]);
+    useEffect(() => fetchData('board'), [fetchData]);
     
     return (
         <div>
-            <button onClick={() => fetchBoards()}>Click me</button>
+            <button onClick={() => fetchData('board')}>Click me</button>
             {boards ? boards.map(board => <p key={board.id}>{board.title}</p>) : <p>Loading...</p>}
         </div>
     )
@@ -15,10 +15,11 @@ export const Home = ({fetchBoards, boards}) => {
 
 const mapDispatchToProps = {
     fetchBoards,
+    fetchData
 };
 
 const mapStateToProps = state => ({
-    boards: state.home.boards,
+    boards: state.home.boards.boards,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
