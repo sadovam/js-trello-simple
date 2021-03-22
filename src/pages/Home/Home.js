@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchBoards, fetchData } from '../../store/actions';
-export const Home = ({fetchBoards, fetchData, boards}) => {
+import { fetchData } from '../../store/actions';
+
+export const Home = ({fetchData, boards}) => {
     
     useEffect(() => fetchData('board'), [fetchData]);
     
@@ -14,12 +15,11 @@ export const Home = ({fetchBoards, fetchData, boards}) => {
 };
 
 const mapDispatchToProps = {
-    fetchBoards,
-    fetchData
+    fetchData,
 };
 
 const mapStateToProps = state => ({
-    boards: state.home.boards.boards,
+    boards: state.home.data.boards,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

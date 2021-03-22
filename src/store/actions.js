@@ -1,11 +1,10 @@
-import { FETCH_BOARDS, FETCH_DATA, REQUESTED_BOARDS } from "./types";
+import { FETCH_DATA, REQUESTED_DATA } from "./types";
 
-export const fetchBoards = () => ({ type: FETCH_BOARDS });
 export const fetchData = (url) => ({ type: FETCH_DATA, payload: url });
 
-export const requestedBoards = (data) => (
+export const requestedData = (data) => (
     {
-        type: REQUESTED_BOARDS,
+        type: REQUESTED_DATA,
         payload: data,
     }
 );

@@ -10,4 +10,7 @@ const instance = axios.create({
 });
   
 instance.interceptors.response.use((res) => res.data);
-export default instance;
+
+export async function fetchData(url) {
+    return await instance.get(url);
+}
