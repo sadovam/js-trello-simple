@@ -11,6 +11,10 @@ const instance = axios.create({
   
 instance.interceptors.response.use((res) => res.data);
 
-export async function fetchData(url) {
+export async function fetchDataAPI(url) {
     return await instance.get(url);
+}
+
+export async function fetchPostDataAPI({url, data}) {
+    return await instance.post(url, data);
 }

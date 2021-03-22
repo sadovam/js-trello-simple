@@ -1,25 +1,31 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from '../../store/actions';
+import { fetchData, showMessage } from '../../store/actions';
+import BoardAddForm from './BoardAddForm';
+import { Message } from '../../components/Message';
 
-export const Home = ({fetchData, boards}) => {
+export const Home = ({fetchData, boards, message, showMessage}) => {
     
     useEffect(() => fetchData('board'), [fetchData]);
-    
+    console.log("MESS>>> ", message)
     return (
         <div>
-            <button onClick={() => fetchData('board')}>Click me</button>
+            {message ? <Message title={message.title} text={message.text} /> : null}
             {boards ? boards.map(board => <p key={board.id}>{board.title}</p>) : <p>Loading...</p>}
+            <BoardAddForm />
+            <button onClick={() => showMessage('Home', 'Message on click')}>Click me</button>
         </div>
     )
 };
 
 const mapDispatchToProps = {
     fetchData,
+    showMessage,
 };
 
 const mapStateToProps = state => ({
     boards: state.home.data.boards,
+    message: state.home.showMessage,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
