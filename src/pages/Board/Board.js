@@ -17,8 +17,8 @@ const Board = ({match, fetchBoard, message, board}) => {
       <h1>{ '<<' + id + '>> Board page' }</h1>
     
       <ul>
-        {board.lists ? Object.keys(board.lists).map(id => (
-          <List key={id} title={board.lists[id].title} position={board.lists[id].position} cards={board.lists[id].cards} />
+        {board.lists ? Object.keys(board.lists).map(uid => (
+          <List key={uid} id={uid} boardId={id} title={board.lists[uid].title} position={board.lists[uid].position} cards={board.lists[uid].cards} />
         )) : 'Loading...'} 
       </ul>
       <ListAddForm boardId={id} position={board.lists ? Object.keys(board.lists).length + 1 : 1} />
