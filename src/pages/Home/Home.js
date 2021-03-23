@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export const Home = ({fetchData, boards, message, showMessage}) => {
     
     useEffect(() => fetchData('board'), [fetchData]);
-    console.log("MESS>>> ", message)
+    // console.log("MESS>>> ", message)
     return (
         <div>
             {message ? <Message title={message.title} text={message.text} /> : null}

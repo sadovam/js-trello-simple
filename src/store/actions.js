@@ -1,4 +1,4 @@
-import { CHANGE_INPUT_VALUE, FETCH_POST_DATA, FETCH_DATA, REQUESTED_POST_DATA, REQUESTED_DATA, SHOW_MESSAGE, HIDE_MESSAGE, MAKE_MESSAGE_VISIBLE } from "./types";
+import { CHANGE_INPUT_VALUE, FETCH_POST_DATA, FETCH_DATA, REQUESTED_POST_DATA, REQUESTED_DATA, SHOW_MESSAGE, HIDE_MESSAGE, MAKE_MESSAGE_VISIBLE, REQUESTED_BOARD, FETCH_BOARD } from "./types";
 
 export const fetchData = url => (
     { 
@@ -50,3 +50,17 @@ export const makeMessageVisible = message => (
 );
 
 export const hideMessage = () => ({ type: HIDE_MESSAGE });
+
+export const requestedBoard = data => (
+    {
+        type: REQUESTED_BOARD,
+        payload: data,
+    }
+);
+
+export const fetchBoard = url => (
+    { 
+        type: FETCH_BOARD, 
+        payload: url, 
+    }
+);
