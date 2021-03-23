@@ -18,3 +18,11 @@ export async function fetchDataAPI(url) {
 export async function fetchPostDataAPI({url, data}) {
     return await instance.post(url, data);
 }
+
+export async function fetchPutDataAPI({url, data}) {
+    return await instance.put(url, data);
+}
+
+export async function fetchDelDataAPI(url) {
+    return await instance.delete(url);
+}
