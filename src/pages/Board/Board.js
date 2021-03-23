@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchBoard, showMessage } from '../../store/actions';
 import { Message } from '../../components/Message';
-import { List } from './List';
+import List from './List';
 import ListAddForm from './ListAddForm';
 
 

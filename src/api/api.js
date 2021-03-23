@@ -23,6 +23,6 @@ export async function fetchPutDataAPI({url, data}) {
     return await instance.put(url, data);
 }
 
-export async function fetchDelDataAPI(url) {
+export async function fetchDelDataAPI({url}) {
     return await instance.delete(url);
 }
