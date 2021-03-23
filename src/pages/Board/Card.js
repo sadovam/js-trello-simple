@@ -1,0 +1,1 @@
+export const Card = ({ title, position }) => (<li>{ title + ' pos: ' + position }</li>);
