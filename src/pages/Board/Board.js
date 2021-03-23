@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchBoard, showMessage } from '../../store/actions';
 import { Message } from '../../components/Message';
 import { List } from './List';
+import ListAddForm from './ListAddForm';
 
 
 const Board = ({match, fetchBoard, message, board}) => {
@@ -20,6 +21,7 @@ const Board = ({match, fetchBoard, message, board}) => {
           <List key={id} title={board.lists[id].title} position={board.lists[id].position} cards={board.lists[id].cards} />
         )) : 'Loading...'} 
       </ul>
+      <ListAddForm boardId={id} position={board.lists ? Object.keys(board.lists).length + 1 : 1} />
     </div>
   );
 }

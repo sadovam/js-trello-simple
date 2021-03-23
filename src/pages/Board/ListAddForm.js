@@ -1,19 +1,19 @@
 import { connect } from "react-redux";
-import { changeInputValue, fetchPostData, showMessage } from "../../store/actions";
+import { changeInputValue, fetchPostBoard, showMessage } from "../../store/actions";
 
-const BoardAddForm = props => {
+const ListAddForm = props => {
   
   return(
     <form onSubmit={
       event => {
         event.preventDefault();
-        props.fetchPostData('board', {title: props.newTitle});
+        props.fetchPostBoard(props.boardId, 'board/' + props.boardId + '/list', {title: props.newTitle, position: props.position});
         props.changeInputValue('');
       }
     }>
-      <label htmlFor='title'>Введіть назву нової дошки</label>
+      <label htmlFor='title'>Введіть назву нового списку</label>
       <input name='title' id='title' 
-        placeholder='Назва дошки' value={props.newTitle} 
+        placeholder='Назва списку' value={props.newTitle} 
         onChange={event => props.changeInputValue(event.target.value)}/>
       <input type='submit'/>
     </form>
@@ -27,8 +27,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   changeInputValue,
-  fetchPostData,
+  fetchPostBoard,
   showMessage,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoardAddForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ListAddForm);
