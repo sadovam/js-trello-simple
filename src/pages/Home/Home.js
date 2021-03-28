@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchData, showMessage } from '../../store/actions';
 import BoardAddForm from './BoardAddForm';
 import { Message } from '../../components/Message';
-import { Link } from 'react-router-dom';
+import Board from './Board';
 
 export const Home = ({fetchData, boards, message, showMessage}) => {
     
@@ -12,7 +12,7 @@ export const Home = ({fetchData, boards, message, showMessage}) => {
     return (
         <div>
             {message ? <Message title={message.title} text={message.text} /> : null}
-            {boards ? boards.map(board => <p key={board.id}><Link to={'/board/' + board.id}>{board.title}</Link></p>) : <p>Loading...</p>}
+            {boards ? boards.map(board => <Board key={board.id} id={board.id} title={board.title}/>) : <p>Loading...</p>}
             <BoardAddForm />
             <button onClick={() => showMessage('Home', 'Message on click')}>Click me</button>
         </div>
