@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchBoard, showMessage } from '../../store/actions';
-import { Message } from '../../components/Message';
-import { List } from './List';
+import List from './List';
 import ListAddForm from './ListAddForm';
-
+import cs from './Board.module.css';
 
 const Board = ({match, fetchBoard, message, board}) => {
   const { id } = match.params;
@@ -13,10 +12,9 @@ const Board = ({match, fetchBoard, message, board}) => {
   
   return (
     <div>
-      {message ? <Message title={message.title} text={message.text} /> : null}
-      <h1>{ '<<' + id + '>> Board page' }</h1>
+      <h1 className={cs.title}>{ '<<' + id + '>> Board page' }</h1>
     
-      <ul>
+      <ul className={cs.lists}>
         {board.lists ? Object.keys(board.lists).map(uid => (
           <List key={uid} id={uid} boardId={id} title={board.lists[uid].title} position={board.lists[uid].position} cards={board.lists[uid].cards} />
         )) : 'Loading...'} 
@@ -33,7 +31,6 @@ const mapDispatchToProps = {
   
   const mapStateToProps = state => ({
     board: state.board.board,
-    message: state.home.showMessage,
   });
 export default connect (mapStateToProps, mapDispatchToProps)(Board);
 

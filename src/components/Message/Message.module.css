@@ -1,0 +1,16 @@
+.message {
+  position: fixed;
+  top: -150px;
+  left: 10%;
+  width: 80%;
+  border-radius: 25px;
+  font-size: 1em;
+  padding: 20px;
+  background-color: yellow;
+  transition: top 0.5s;
+}
+
+.title {
+  font-size: 1.5em;
+  color: brown;
+}

@@ -1,0 +1,13 @@
+.form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: cadetblue;
+  border-radius: 25px;
+}
+
+.input {
+  margin-top: 20px;
+}

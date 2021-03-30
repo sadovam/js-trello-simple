@@ -1,4 +1,7 @@
-import { CHANGE_INPUT_VALUE, FETCH_POST_DATA, FETCH_DATA, REQUESTED_POST_DATA, REQUESTED_DATA, SHOW_MESSAGE, HIDE_MESSAGE, MAKE_MESSAGE_VISIBLE, REQUESTED_BOARD, FETCH_BOARD, FETCH_POST_BOARD } from "./types";
+import { CHANGE_INPUT_VALUE, FETCH_POST_DATA, FETCH_DATA, 
+    REQUESTED_POST_DATA, REQUESTED_DATA, SHOW_MESSAGE, 
+    HIDE_MESSAGE, MAKE_MESSAGE_VISIBLE, REQUESTED_BOARD, 
+    FETCH_BOARD, FETCH_POST_BOARD, DELETE_DATA, DELETE_BOARD, SHOW_MODAL, HIDE_MODAL } from "./types";
 
 export const fetchData = url => (
     { 
@@ -71,3 +74,26 @@ export const fetchPostBoard = (id, url, data) => (
         payload: {url: url, data: data, boardId: id}, 
     }
 );
+
+export const deleteData = (url, boardId) => (
+    { 
+        type: DELETE_DATA, 
+        payload: {url: url, boardId: boardId}, 
+    }
+);
+
+export const deleteBoard = (url) => (
+    { 
+        type: DELETE_BOARD, 
+        payload: {url: url}, 
+    }
+);
+
+export const showModal = component => (
+    {
+        type: SHOW_MODAL,
+        payload: component,
+    }
+);
+
+export const hideModal = () => ({ type: HIDE_MODAL });
