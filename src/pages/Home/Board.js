@@ -2,12 +2,14 @@ import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import { deleteBoard } from "../../store/actions"
 
+import cs from './Board.module.css';
+
 const Board = (props) => {
   return (
-    <>
-    <Link to={'/board/' + props.id}>{props.title}</Link>
-    <button onClick={ () => props.deleteBoard('board/' + props.id) }>X</button> 
-    </>
+    <div className={ cs.board }>
+    <Link className={ cs.link } to={'/board/' + props.id}>{props.title}</Link>
+    <button className={ cs.btn } onClick={ () => props.deleteBoard('board/' + props.id) }>Видалити</button> 
+    </div>
   )
 }
 

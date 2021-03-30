@@ -1,7 +1,7 @@
 import { call, put, takeEvery, delay } from 'redux-saga/effects';
 import { fetchDataAPI, fetchDelDataAPI, fetchPostDataAPI } from '../api/api';
 import { fetchBoard, fetchData, hideMessage, makeMessageVisible, requestedBoard, requestedData, showMessage } from './actions';
-import { DELETE_BOARD, DELETE_DATA, FETCH_BOARD, FETCH_DATA, FETCH_POST_BOARD, FETCH_POST_DATA, SHOW_MESSAGE } from "./types";
+import { DELETE_BOARD, DELETE_DATA, FETCH_BOARD, FETCH_DATA, FETCH_POST_BOARD, FETCH_POST_DATA, SHOW_MESSAGE} from "./types";
 
 export function* sagaWatcher() {
     yield takeEvery(FETCH_DATA, dataWorker);
@@ -11,7 +11,6 @@ export function* sagaWatcher() {
     yield takeEvery(FETCH_POST_BOARD, boardPostWorker);
     yield takeEvery(DELETE_DATA, dataDeleteWorker);
     yield takeEvery(DELETE_BOARD, boardDeleteWorker);
-
 }
 
 function* dataWorker(action) {
@@ -77,3 +76,4 @@ function* boardDeleteWorker(action) {
         yield put(showMessage('Delete error', err.message));
     }
 }
+

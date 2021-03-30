@@ -16,3 +16,6 @@ export const FETCH_POST_BOARD = 'BOARD/FETCH_POST_DATA';
 
 export const DELETE_DATA = 'BOARD/DELETE_DATA';
 export const DELETE_BOARD = 'HOME/DELETE_BOARD';
+
+export const SHOW_MODAL = 'APP/SHOW_MODAL';
+export const HIDE_MODAL = 'APP/HIDE_MODAL';
